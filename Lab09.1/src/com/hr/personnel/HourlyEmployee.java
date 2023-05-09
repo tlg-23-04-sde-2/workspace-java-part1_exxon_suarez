@@ -58,4 +58,9 @@ public class HourlyEmployee extends Employee {
     public void payTaxes() {
         System.out.println( getName() + "payed taxes of: " + getHours() * getRate() * TaxPayer.HOURLY_TAX_RATE);
     }
+
+    @Override
+    public double getStandardDeduction() {
+        return 2500;
+    }
 }

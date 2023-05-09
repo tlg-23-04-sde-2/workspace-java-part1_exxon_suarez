@@ -59,4 +59,9 @@ public class SalariedEmployee extends Employee  {
     public void payTaxes() {
         System.out.println( getName() + "Payed taxes of: " + TaxPayer.SALARIED_TAX_RATE * getSalary());
     }
+
+    @Override
+    public double getStandardDeduction() {
+        return 100.00;
+    }
 }
