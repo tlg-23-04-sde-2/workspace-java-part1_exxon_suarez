@@ -32,6 +32,10 @@ public class SalariedEmployee extends Employee {
         System.out.println(getName() + " is paid salary " + getSalary());       // inherited getName() method from base class Employee
     }
 
+    public void takeVacation() {
+        System.out.println( getName() + " is on Vacation...");
+    }
+
     // accessors methods
 
     public double getSalary() {
