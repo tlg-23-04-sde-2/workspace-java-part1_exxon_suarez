@@ -39,4 +39,9 @@ public class Corporation implements TaxPayer {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public double getStandardDeduction() {
+        return 20000.00;
+    }
 }
