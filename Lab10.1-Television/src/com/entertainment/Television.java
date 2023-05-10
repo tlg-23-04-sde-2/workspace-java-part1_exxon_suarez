@@ -41,14 +41,14 @@ public class Television {
         instanceCount++; // When new instance created then counter incremented by 1
     }
 
-    public Television(String brand, double volume ) throws IllegalArgumentException {
+    public Television(String brand, double volume ) throws InvalidVolumeException {
         this(); // inheriting the instanceCount variable from above method
         setBrand(brand);
         setVolume(volume);
     }
 
     // 3 arg constructor including the Display enum
-    public Television(String brand, double volume, DisplayType display) throws  IllegalArgumentException {
+    public Television(String brand, double volume, DisplayType display) throws  InvalidVolumeException {
         this(brand, volume);
         this.display = display;
     }
@@ -71,7 +71,7 @@ public class Television {
             isMuted = true;
 
         }else {                 // currently muted
-            setVolume(oldVolume);
+            volume = oldVolume;
             isMuted = false;
         }
     }
@@ -108,15 +108,16 @@ public class Television {
         return volume;
     }
 
-    public void setVolume(double volume) throws IllegalArgumentException {
+    public void setVolume(double volume) throws InvalidVolumeException  {
 
         if (volume >= MIN_VOLUME && volume <= MAX_VOLUME ) {
             this.volume = volume;
 
             isMuted = false;            // setting the volume also unmutes the tv
         }else {
+
 //            System.out.println(" The provided Volume is not between 0 and 100 please submit new volume");
-            throw new IllegalArgumentException("Invalid Volume:" + volume + "." +   "Valid range is: " +  MIN_VOLUME + " - " + MAX_VOLUME );
+            throw new InvalidVolumeException("Invalid Volume:" + volume + "." +   "Valid range is: " +  MIN_VOLUME + " - " + MAX_VOLUME );
         }
     }
 
